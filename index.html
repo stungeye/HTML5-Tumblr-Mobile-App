@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Meow Reader</title>
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+  
+  <style type="text/css">
+  html, body {
+	margin: 0;
+	height: 100%;
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aaa), to(#444));
+	background: -webkit-linear-gradient(top, #aaa, #444);
+  }
+  
+  #gallery { list-style: none; padding: 0; margin: 0; }
+  #gallery:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
+  #gallery li { float: left; width: 33.33333333%; }
+  #gallery li a { display: block; margin: 5px; border: 1px solid #3c3c3c; }
+  #gallery li img { display: block; width: 100%; height: auto; }
+  </style>
+  
+</head>
+<body>
+  <div id="main" role="main">
+    <ul id="gallery">
+    </ul>
+  </div>
+  <script type="text/javascript" src="js/klass.min.js"></script>
+  <script type="text/javascript" src="js/code.photoswipe-3.0.4.min.js"></script>
+  <script type="text/javascript">
+    function strip(html) {
+      var tmp = document.createElement("DIV");
+      tmp.innerHTML = html;
+      return tmp.textContent||tmp.innerText;
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      var main = window.document.getElementById('main');
+      main.addEventListener('touchmove', function(event) { event.preventDefault(); }, false );
+    });
+    
+    function load_images(json) {
+      document.addEventListener('DOMContentLoaded', function(){
+	var i,
+	    photos,
+	    num_alt_photos,
+	    photo_thumb,
+	    photo_big,
+	    caption,
+	    posts = json['response']['posts'],
+	    gallery = window.document.getElementById('gallery');
+	for (i = 0; i < posts.length; i++) {
+	  photos = posts[i]['photos'][0]['alt_sizes'];
+	  num_alt_photos = photos.length;
+	  photo_thumb = photos[num_alt_photos-1]['url'];
+	  photo_big   = photos[0]['url'];
+	  caption     = strip(posts[i]['caption']);
+	  gallery.innerHTML += '<li><a href="' + photo_big + '"><img src="' + photo_thumb + '" alt="' + caption + '" /></a></li>';  
+	}
+	var myPhotoSwipe = Code.PhotoSwipe.attach( window.document.querySelectorAll('#gallery a'), { enableMouseWheel: false , enableKeyboard: false, enableDrag: false  } );
+      }, false);
+    }
+  </script>      
+  <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&jsonp=load_images&limit=12"></script>
+</body>
+</html>
