@@ -8,26 +8,24 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
-  
-  <style type="text/css">
-  html, body {
-	margin: 0;
-	height: 100%;
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#aaa), to(#444));
-	background: -webkit-linear-gradient(top, #aaa, #444);
-  }
-  
-  #gallery { list-style: none; padding: 0; margin: 0; }
-  #gallery:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
-  #gallery li { float: left; width: 33.33333333%; }
-  #gallery li a { display: block; margin: 5px; border: 1px solid #3c3c3c; }
-  #gallery li img { display: block; width: 100%; height: auto; }
-  </style>
-  
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
   <div id="main" role="main">
-    <a href="#" id="launch_link">Launch Slideshow</a>
+    <div class="toolbar">
+      <h1>Meow Reader</h1>
+    </div>
+    <ul class="buttons">
+      <li>
+	<a href="#" id="launch_link">Launch Slideshow</a>
+      </li>
+      <li>
+	<a href="#">Something Else</a>
+      </li>
+      <li>
+	<a href="#">About Meow Reader</a>
+      </li>
+    </ul>
   </div>
   <script type="text/javascript" src="js/klass.min.js"></script>
   <script type="text/javascript" src="js/code.photoswipe-3.0.4.min.js"></script>
@@ -88,6 +86,6 @@
       }, false);
     }
   </script>      
-  <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&jsonp=load_images&limit=12"></script>
+  <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&amp;jsonp=load_images&amp;limit=12"></script>
 </body>
 </html>
