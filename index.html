@@ -11,81 +11,56 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+  
   <div id="main" role="main">
+    
     <div class="toolbar">
+      <a href="#" id="back_button" class="hidden">Home</a>
       <h1>Meow Reader</h1>
-    </div>
-    <ul class="buttons">
-      <li>
-	<a href="#" id="launch_link">Launch Slideshow</a>
-      </li>
-      <li>
-	<a href="#">Something Else</a>
-      </li>
-      <li>
-	<a href="#">About Meow Reader</a>
-      </li>
-    </ul>
-  </div>
+    </div> <!-- end .toolbar -->
+    
+    <div id="home" class="screen">
+      <ul class="buttons">
+	<li>
+	  <a href="#" id="launch_link">See Reading Cats</a>
+	</li>
+	<li>
+	  <a href="#about_meow" class="switch_screen">About Meow Reader</a>
+	</li>
+	<li>
+	  <a href="#about_app" class="switch_screen">About This App</a>
+	</li>
+      </ul>
+    </div> <!-- end #home -->
+    
+    <div class="information screen hidden" id="about_meow">
+      <h2>About Meow Reader</h2>
+      <p>Photos of cats reading and photos of cats learning how to read.</p>
+      <ul>
+	<li><a target="_blank" href="http://meow-reader.tumblr.com/">Meow Reader Website</a></li>
+	<li><a target="_blank" href="http://meow-reader.tumblr.com/submit">Submit a Photo</a></li>
+      </ul>
+      <blockquote>&ldquo;Isn't there always a cat napping on whatever you're reading?&rdquo;</blockquote>
+    </div> <!-- end #about_meow -->
+    
+    <div class="information screen hidden" id="about_app">
+      <h2>About this App</h2>
+      <p>This mobile application was written by <a href="http://stungeye.com" target="_blank">Kyle Geske</a> using HTML5 and <a href="http://phonegap.com" target="_blank">Phonegap</a>.</p>
+      <ul>
+	<li><a href="mobilehtml5.stungeye.com" target="_blank">How This App was Written</a></li>
+	<li><a href="https://github.com/stungeye/HTML5-Tumblr-Mobile-App" target="_blank">App Source Code on Github</a></li>
+      </ul>
+    </div> <!-- end #about_app -->
+    
+  </div> <!-- end #main -->
+  
+  <!-- Javascripts -->
+  <!-- Disable the phonegap script for browser based testing. -->
+  <!-- <script type="text/javascript" charset="utf-8" src="js/phonegap-1.4.1.js"></script> -->
   <script type="text/javascript" src="js/klass.min.js"></script>
   <script type="text/javascript" src="js/code.photoswipe-3.0.4.min.js"></script>
-  <script type="text/javascript">
-    // Strip HTML elements from a string.
-    // IMPORTANT: Only be used with trusted HTML. Very easy to abuse with an XSS attack.
-    // See: http://stackoverflow.com/questions/822452/strip-html-from-text-javascript#comment9107196_822486
-    function strip(html) {
-      var tmp = document.createElement("div");
-      tmp.innerHTML = html;
-      return tmp.textContent||tmp.innerText;
-    }
-    
-    // Prevent webkit from allowing the user to scroll the page using a move gesture.
-    // Added to prevent the user from scrolling past the end of the home page.
-    document.addEventListener("DOMContentLoaded", function() {
-      var main = window.document.getElementById('main');
-      main.addEventListener('touchmove', function(event) { event.preventDefault(); }, false );
-    });
-    
-    // This callback function is called by the JSONP response of the Tumblr API
-    // request made in the script element below this one.
-    function load_images(json) {
-      
-      var i,
-	  photos,
-	  photo_big,
-	  caption_text,
-	  options,
-	  instance,
-	  images = [],
-	  posts = json['response']['posts'];
-	  
-      for (i = 0; i < posts.length; i++) {
-	photos         = posts[i]['photos'][0]['alt_sizes'];
-	photo_big      = photos[0]['url'];
-	caption_text   = strip(posts[i]['caption']);
-	
-	images.push({ url: photo_big, caption: caption_text })
-      }
-      
-      options = { enableDrag: false,
-		  captionAndToolbarAutoHideDelay: 0,
-		  getImageSource: function(obj){
-		    return obj.url;
-		  },
-		  getImageCaption: function(obj){
-		    return obj.caption;
-		  }
-		}
-		
-      instance = Code.PhotoSwipe.attach(images, options);
-      
-      launch_link = document.getElementById('launch_link');
-      launch_link.addEventListener('click', function(event) {
-	event.preventDefault();
-        instance.show(0);
-      }, false);
-    }
-  </script>      
+  <script type="text/javascript" src="js/noclickdelay.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>      
   <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&amp;jsonp=load_images&amp;limit=12"></script>
 </body>
 </html>
