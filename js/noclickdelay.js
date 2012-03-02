@@ -10,22 +10,6 @@
 // "ghost click" is sometimes fired after the callback has been executed. The onClick
 // handler was added to supress these ghost clicks, although it never appears to be fired.
 
-
-// An on-screen debug console.
-// Requires an element with an id of "main".
-function debug_log(msg) {
-  var main = document.getElementById("main"),
-      debug = document.getElementById('glutton_debug');
-  if (debug === null && main !== null) {
-	debug = document.createElement('div');
-	debug.setAttribute('id','glutton_debug');
-	main.appendChild(debug);
-  }
-  if (debug !== null) {
-	debug.innerHTML += "<p>" + msg + "</p>";
-  }
-}
-
 function NoClickDelay(el, callback) {
 	this.element = typeof el === 'object' ? el : document.getElementById(el);
 	this.callback = callback;
@@ -82,6 +66,7 @@ NoClickDelay.prototype = {
 	onClick: function(e) {
 		e.stopPropagation();
 		e.preventDefault();
+		return false;
 	}
 	
 };

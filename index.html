@@ -14,41 +14,41 @@
   
   <div id="main" role="main">
     
-    <div class="toolbar">
-      <a href="#" id="back_button" class="hidden">Home</a>
+    <div id="toolbar">
+      <a href="#home" id="back_button" class="hidden">Home</a>
       <h1>Meow Reader</h1>
     </div> <!-- end .toolbar -->
     
     <div id="home" class="screen">
       <ul class="buttons">
-	<li>
-	  <a href="#" id="launch_link">See Reading Cats</a>
-	</li>
-	<li>
-	  <a href="#about_meow" class="switch_screen">About Meow Reader</a>
-	</li>
-	<li>
-	  <a href="#about_app" class="switch_screen">About This App</a>
-	</li>
+		<li>
+		  <a href="#" id="launch_link">See Reading Cats</a>
+		</li>
+		<li>
+		  <a href="#about_meow" class="switch_screen">About Meow Reader</a>
+		</li>
+		<li>
+		  <a href="#about_app" class="switch_screen">About This App</a>
+		</li>
       </ul>
     </div> <!-- end #home -->
     
-    <div class="information screen hidden" id="about_meow">
+    <div class="screen hidden" id="about_meow">
       <h2>About Meow Reader</h2>
       <p>Photos of cats reading and photos of cats learning how to read.</p>
       <ul>
-	<li><a target="_blank" href="http://meow-reader.tumblr.com/">Meow Reader Website</a></li>
-	<li><a target="_blank" href="http://meow-reader.tumblr.com/submit">Submit a Photo</a></li>
+	<li><a href="http://meow-reader.tumblr.com/" target="_blank" rel="external">Meow Reader Website</a></li>
+	<li><a href="http://meow-reader.tumblr.com/submit" target="_blank" rel="external">Submit a Photo</a></li>
       </ul>
       <blockquote>&ldquo;Isn't there always a cat napping on whatever you're reading?&rdquo;</blockquote>
     </div> <!-- end #about_meow -->
     
-    <div class="information screen hidden" id="about_app">
+    <div class="screen hidden" id="about_app">
       <h2>About this App</h2>
       <p>This mobile application was written by <a href="http://stungeye.com" target="_blank">Kyle Geske</a> using HTML5 and <a href="http://phonegap.com" target="_blank">Phonegap</a>.</p>
       <ul>
-	<li><a href="mobilehtml5.stungeye.com" target="_blank">How This App was Written</a></li>
-	<li><a href="https://github.com/stungeye/HTML5-Tumblr-Mobile-App" target="_blank">App Source Code on Github</a></li>
+	<li><a href="mobilehtml5.stungeye.com" target="_blank" rel="external">How This App was Written</a></li>
+	<li><a href="https://github.com/stungeye/HTML5-Tumblr-Mobile-App" target="_blank" rel="external">App Source Code on Github</a></li>
       </ul>
     </div> <!-- end #about_app -->
   </div> <!-- end #main -->
@@ -58,6 +58,7 @@
   <!-- <script type="text/javascript" charset="utf-8" src="js/phonegap-1.4.1.js"></script> -->
   <script type="text/javascript" src="js/klass.min.js"></script>
   <script type="text/javascript" src="js/code.photoswipe-3.0.4.min.js"></script>
+  <script type="text/javascript" src="js/helper.js"></script>      
   <script type="text/javascript" src="js/noclickdelay.js"></script>
   <script type="text/javascript" src="js/main.js"></script>      
   <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&amp;jsonp=load_images&amp;limit=12"></script>
