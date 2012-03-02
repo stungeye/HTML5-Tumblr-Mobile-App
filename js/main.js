@@ -17,6 +17,16 @@ document.addEventListener("DOMContentLoaded", function() {
   
 });
 
+document.addEventListener("deviceready", phonegap_init, false);
+
+function phonegap_init() {
+  [].forEach.call(document.querySelectorAll("a[target=_blank][rel=external]"), function(el) {
+    set_click(el, function(e) {
+      navigator.app.loadUrl(e.getAttribute('href'));
+    });
+  }
+}
+
 // This callback function is called by the JSONP response of the Tumblr API
 // request made in the script element below this one.
 function load_images(json) {
