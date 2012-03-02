@@ -24,7 +24,7 @@ function phonegap_init() {
     set_click(el, function(e) {
       navigator.app.loadUrl(e.getAttribute('href'));
     });
-  }
+  });
 }
 
 // This callback function is called by the JSONP response of the Tumblr API
