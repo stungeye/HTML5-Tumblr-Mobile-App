@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
 });
-
+/*
 document.addEventListener("deviceready", phonegap_init, false);
 
 function phonegap_init() {
@@ -25,7 +25,7 @@ function phonegap_init() {
       navigator.app.loadUrl(e.getAttribute('href'));
     });
   });
-}
+}*/
 
 // This callback function is called by the JSONP response of the Tumblr API
 // request made in the script element below this one.
@@ -39,7 +39,8 @@ function load_images(json) {
       instance,
       images = [],
       posts = json['response']['posts'],
-      launch_link = document.getElementById('launch_link');
+      launch_link = document.getElementById('launch_link'),
+      launch_link_2 = document.getElementById('launch_link_2');
 
   // Gather all 20 images returned from the Tumblr API call into an array of hashes.
   for (i = 0; i < posts.length; i++) {
@@ -52,7 +53,7 @@ function load_images(json) {
   
   // Configure Photoswipe to load images from the array of hashes created above.
   options = {
-    enableDrag: false,
+    //enableDrag: false,
     captionAndToolbarAutoHideDelay: 0,
     getImageSource: function(obj){
       return obj.url;
@@ -66,4 +67,9 @@ function load_images(json) {
   
   // Launch the slideshow when the user clicks on the launch link on the home screen.
   set_click(launch_link, function(event) { instance.show(0); });
+  
+  
+  options.enableDrag = false;
+  instance2 = Code.PhotoSwipe.attach(images, options);
+  set_click(launch_link_2, function(event) { instance2.show(0); });
 }
