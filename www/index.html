@@ -8,61 +8,85 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/default-skin/default-skin.css"> 
   <link href="css/style.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
   
   <div id="main" role="main">
     
-    <div id="toolbar">
-      <a href="#home" id="back_button" class="hidden">Home</a>
-      <h1>Meow Reader</h1>
-    </div> <!-- end .toolbar -->
-    
-    <div id="home" class="screen">
-      <ul class="buttons">
-		<li>
-		  <a href="#" id="launch_link">See The Reading Cats</a>
-		</li>
-		<li>
-		  <a href="#about_meow" class="switch_screen">About Meow Reader</a>
-		</li>
-		<li>
-		  <a href="#about_app" class="switch_screen">About This App</a>
-		</li>
-      </ul>
-    </div> <!-- end #home -->
-    
     <div class="screen hidden" id="about_meow">
       <h2>About Meow Reader</h2>
       <p>Photos of cats reading and photos of cats learning how to read.</p>
       <ul>
-	<li><a href="http://meow-reader.tumblr.com/" target="_blank" rel="external">Meow Reader Website</a></li>
-	<li><a href="http://meow-reader.tumblr.com/submit" target="_blank" rel="external">Submit a Photo</a></li>
+	<li><a href="http://meow-reader.tumblr.com/" class="external">Meow Reader Website</a></li>
+	<li><a href="http://meow-reader.tumblr.com/submit" class="external">Submit a Photo</a></li>
       </ul>
       <blockquote>&ldquo;Isn't there always a cat napping on whatever you're reading?&rdquo;</blockquote>
-    </div> <!-- end #about_meow -->
-    
-    <div class="screen hidden" id="about_app">
       <h2>About this App</h2>
-      <p>This mobile application was written by <a href="http://stungeye.com" target="_blank">Kyle Geske</a> using HTML5 and <a href="http://phonegap.com" target="_blank" rel="external">Phonegap</a>.</p>
+      <p>This mobile application was written by <a href="http://stungeye.com" class="external">Kyle Geske</a> using HTML5 and <a href="https://cordova.apache.org/" class="external">Cordova</a>.</p>
       <ul>
-		<li><a href="http://mobilehtml5.stungeye.com/2012/03/05/html5-tumblr-mobile-app-part-one" target="_blank" rel="external">How This App was Written</a></li>
-		<li><a href="https://github.com/stungeye/HTML5-Tumblr-Mobile-App" target="_blank" rel="external">App Source Code on Github</a></li>
+		<li><a href="http://mobilehtml5.stungeye.com/2012/03/05/html5-tumblr-mobile-app-part-one" class="external">How This App was Written</a></li>
+		<li><a href="https://github.com/stungeye/HTML5-Tumblr-Mobile-App" class="external">App Source Code on Github</a></li>
       </ul>
-	  <p>The launcher icon photo was <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank" rel="external">CC licensed</a> by Flickr user  <a href="http://www.flickr.com/photos/ourania2005/2523775345/" target="_blank" rel="external">Ourania2005</a>.</p>
+	  <p>The launcher icon photo was <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" class="external">CC licensed</a> by Flickr user  <a href="http://www.flickr.com/photos/ourania2005/2523775345/" class="external">Ourania2005</a>.</p>
     </div> <!-- end #about_app -->
   </div> <!-- end #main -->
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+      <!-- Container that holds slides. 
+	  PhotoSwipe keeps only 3 of them in the DOM to save memory.
+	  Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+	<div class="pswp__item"></div>
+	<div class="pswp__item"></div>
+	<div class="pswp__item"></div>
+      </div>
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+	<div class="pswp__top-bar">
+	  <!--  Controls are self-explanatory. Order can be changed. -->
+	  <div class="pswp__counter"></div>
+	  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+	  <button class="pswp__button pswp__button--share" title="Share"></button>
+	  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+	  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+	  <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+	  <!-- element will get class pswp__preloader--active when preloader is running -->
+	  <div class="pswp__preloader">
+	    <div class="pswp__preloader__icn">
+	      <div class="pswp__preloader__cut">
+		<div class="pswp__preloader__donut"></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+	  <div class="pswp__share-tooltip"></div> 
+	</div>
+	<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+	<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+	<div class="pswp__caption">
+	  <div class="pswp__caption__center"></div>
+	</div>
+      </div>
+    </div>
+  </div>
   
   <!-- Javascripts -->
   <!-- Disable the phonegap script for browser based testing. -->
-  
-  <script src="phonegap.js"></script>
-  <script type="text/javascript" src="js/klass.min.js"></script>
-  <script type="text/javascript" src="js/code.photoswipe-3.0.4.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/photoswipe.min.js"></script> 
+  <script type="text/javascript" src="js/photoswipe-ui-default.min.js"></script> 
+  <script type="text/javascript" src="js/noclickdelay.js"></script>      
   <script type="text/javascript" src="js/helper.js"></script>      
-  <script type="text/javascript" src="js/noclickdelay.js"></script>
   <script type="text/javascript" src="js/main.js"></script>      
-  <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&amp;jsonp=load_images&amp;limit=12"></script>
+  <script type="text/javascript" src="http://api.tumblr.com/v2/blog/meow-reader.tumblr.com/posts/photo?api_key=q7faGrbfcKJBFxikysPD4z9DX7gH6SuZchoSvZKdxXXHLbihFq&amp;jsonp=load_images"></script>
 </body>
 </html>

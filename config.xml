@@ -1,28 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns   = "http://www.w3.org/ns/widgets"
-	xmlns:gap   = "http://phonegap.com/ns/1.0"
-	id          = "com.stungeye.meow.reader"
-	version     = "0.9.1">
-
-	<name>Meow Reader</name>
-
-	<description>
-		Photos of cats reading and cats learning how to read.
-	</description>
-
-	<author href="http://stungeye.com"
-		email="stungeye@gmail.com">
-		Kyle Geske
-	</author>
-
-	<gap:platforms>
-		<gap:platform name="android" minVersion="2.1" />
-		<gap:platform name="webos" />
-		<gap:platform name="symbian.wrt" />
-		<gap:platform name="blackberry" project="widgets"/>
-	</gap:platforms>
-
-	<preference name="permissions" value="none"/>
-
-	<icon src="icon.png" gap:role="default" />
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.stungeye.meowreader" version="0.9.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MeowReader</name>
+    <description>
+        Photos of cats reading and photos of cats learning how to read. Meow!
+    </description>
+    <author email="html5mob@gmail.com" href="mobilehtml5.stungeye.com">
+        Kyle Geske
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
 </widget>
